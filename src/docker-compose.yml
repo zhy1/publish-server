@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  gopub:
+    container_name: gopub
+    env_file:
+      - .env
+    restart: always
+    image: ${ETAG?err}
+    extra_hosts:
+      - master:${MASTER?err}
+    environment:
+      - MYSQL_PORT=10106
+    ports:
+      - 8192:8192
